@@ -1,5 +1,6 @@
 from flask import Flask, request, make_response, jsonify
 from flask_restful import Resource, Api
+import os
 
 from flask.ext.httpauth import HTTPBasicAuth
 from common.dateRoutines import Dates
@@ -41,4 +42,6 @@ api.add_resource(counts, '/api/v1.0/counts/<essource>')
 #@app.route('/api/v1.0/bookings/<ds>/<clientID>')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    #app.run(debug=True, port=8000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
