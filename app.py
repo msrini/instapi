@@ -16,17 +16,17 @@ api = Api(app)
 
 dateObject = Dates()
 
-auth = HTTPBasicAuth()
-@auth.get_password
-def get_password(username):
-    if username == 'srini':
-        return 'ins01'
-    return None
-@auth.error_handler
-def unauthorized():
-    # return 403 instead of 401 to prevent browsers from displaying the default
-    # auth dialog
-    return make_response(jsonify({'message': 'Unauthorized access'}), 403)
+# auth = HTTPBasicAuth()
+# @auth.get_password
+# def get_password(username):
+#     if username == 'srini':
+#         return 'ins01'
+#     return None
+# @auth.error_handler
+# def unauthorized():
+#     # return 403 instead of 401 to prevent browsers from displaying the default
+#     # auth dialog
+#     return make_response(jsonify({'message': 'Unauthorized access'}), 403)
 
 @app.errorhandler(InvalidUsage)
 def handle_invalid_usage(error):
@@ -44,4 +44,4 @@ api.add_resource(counts, '/api/v1.0/counts/<essource>')
 if __name__ == '__main__':
     #app.run(debug=True, port=8000)
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(port=port)
