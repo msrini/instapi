@@ -34,12 +34,12 @@ def handle_invalid_usage(error):
     response.status_code = error.status_code
     return response
 
-
-api.add_resource(leastfares, '/api/v1.0/leastfares/<essource>/<cp>')
-api.add_resource(bookings, '/api/v1.0/bookings/<essource>/<clientID>')
-api.add_resource(orgs, '/api/v1.0/clients/<essource>')
-api.add_resource(counts, '/api/v1.0/counts/<essource>')
-#@app.route('/api/v1.0/bookings/<ds>/<clientID>')
+def app():
+    api.add_resource(leastfares, '/api/v1.0/leastfares/<essource>/<cp>')
+    api.add_resource(bookings, '/api/v1.0/bookings/<essource>/<clientID>')
+    api.add_resource(orgs, '/api/v1.0/clients/<essource>')
+    api.add_resource(counts, '/api/v1.0/counts/<essource>')
+    #@app.route('/api/v1.0/bookings/<ds>/<clientID>')
 
 if __name__ == '__main__':
     #app.run(debug=True, port=8000)
