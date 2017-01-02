@@ -44,4 +44,4 @@ api.add_resource(counts, '/api/v1.0/counts/<essource>')
 if __name__ == '__main__':
     #app.run(debug=True, port=8000)
     port = int(os.environ.get("PORT", 5000))
-    app.run(port=port)
+    app.run(host='instapi.herokuapp.com', port=port)
